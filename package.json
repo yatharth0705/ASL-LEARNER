@@ -1,0 +1,23 @@
+{
+  "name": "asl-learner",
+  "version": "1.0.0",
+  "description": "ASL-Learner: American Sign Language educational web application powered by pretrained deep learning models (ONNX Conv-Transformer) running 100% locally via WebAssembly.",
+  "scripts": {
+    "dev": "npm --prefix repos/GestureSign/web run dev",
+    "build": "npm --prefix repos/GestureSign/web run build",
+    "test": "npm --prefix repos/GestureSign/web test",
+    "preview": "npm --prefix repos/GestureSign/web run preview",
+    "verify-models": "python scripts/standalone_model_test.py"
+  },
+  "keywords": [
+    "asl",
+    "sign-language",
+    "deep-learning",
+    "onnx",
+    "mediapipe",
+    "webassembly",
+    "education"
+  ],
+  "license": "MIT"
+}
+

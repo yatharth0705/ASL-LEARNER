@@ -1,0 +1,879 @@
+{
+  "models": {
+    "gesturesign_onnx": {
+      "path": "C:\\Users\\YATHARTH\\OneDrive\\Desktop\\ASL LEARNER\\repos\\GestureSign\\web\\public\\models\\model.onnx",
+      "sha256": "2fc9038cc409a5117a3eb2bb350b005663957a03e19f24c24b1f209c703c753d",
+      "bytes": 5622355
+    },
+    "gesturesign_labels": {
+      "path": "C:\\Users\\YATHARTH\\OneDrive\\Desktop\\ASL LEARNER\\repos\\GestureSign\\web\\public\\models\\labels.json",
+      "sha256": "96244c54104bc5544f57672fdcc1de48ef46f27663ce23c2957c9035209b6439"
+    },
+    "glossa_bart": {
+      "path": "C:\\Users\\YATHARTH\\OneDrive\\Desktop\\ASL LEARNER\\feasibility_workspace\\stage2_bart\\model.safetensors",
+      "sha256": "380c0c8ac711dabde5666e85de880c9a054d43f89ca78e80fb2385d0198c051e",
+      "bytes": 557912620
+    }
+  },
+  "isolated_benchmark": {
+    "n": 6,
+    "literal_top1": {
+      "correct": 5,
+      "pct": 83.33333333333334
+    },
+    "semantic_top1": {
+      "correct": 6,
+      "pct": 100.0
+    },
+    "literal_top3": {
+      "correct": 5,
+      "pct": 83.33333333333334
+    },
+    "semantic_top3": {
+      "correct": 6,
+      "pct": 100.0
+    },
+    "details": [
+      {
+        "sign": "blue",
+        "top1": "blue",
+        "confidence": 0.7515670657157898,
+        "top3": [
+          [
+            "blue",
+            0.7515670657157898
+          ],
+          [
+            "tree",
+            0.026009004563093185
+          ],
+          [
+            "refrigerator",
+            0.020580213516950607
+          ]
+        ],
+        "literal_top1": true,
+        "semantic_top1": true,
+        "literal_top3": true,
+        "semantic_top3": true
+      },
+      {
+        "sign": "police",
+        "top1": "police",
+        "confidence": 0.9189997911453247,
+        "top3": [
+          [
+            "police",
+            0.9189997911453247
+          ],
+          [
+            "chocolate",
+            0.023231077939271927
+          ],
+          [
+            "carrot",
+            0.0027061125729233027
+          ]
+        ],
+        "literal_top1": true,
+        "semantic_top1": true,
+        "literal_top3": true,
+        "semantic_top3": true
+      },
+      {
+        "sign": "quiet",
+        "top1": "shh",
+        "confidence": 0.9458480477333069,
+        "top3": [
+          [
+            "shh",
+            0.9458480477333069
+          ],
+          [
+            "police",
+            0.0047044698148965836
+          ],
+          [
+            "jeans",
+            0.001846918836236
+          ]
+        ],
+        "literal_top1": false,
+        "semantic_top1": true,
+        "literal_top3": false,
+        "semantic_top3": true
+      },
+      {
+        "sign": "giraffe",
+        "top1": "giraffe",
+        "confidence": 0.8539758324623108,
+        "top3": [
+          [
+            "giraffe",
+            0.8539758324623108
+          ],
+          [
+            "head",
+            0.02607152983546257
+          ],
+          [
+            "hat",
+            0.006165251601487398
+          ]
+        ],
+        "literal_top1": true,
+        "semantic_top1": true,
+        "literal_top3": true,
+        "semantic_top3": true
+      },
+      {
+        "sign": "smile",
+        "top1": "smile",
+        "confidence": 0.35385552048683167,
+        "top3": [
+          [
+            "smile",
+            0.35385552048683167
+          ],
+          [
+            "home",
+            0.26027846336364746
+          ],
+          [
+            "napkin",
+            0.07187443971633911
+          ]
+        ],
+        "literal_top1": true,
+        "semantic_top1": true,
+        "literal_top3": true,
+        "semantic_top3": true
+      },
+      {
+        "sign": "hello",
+        "top1": "hello",
+        "confidence": 0.9294261336326599,
+        "top3": [
+          [
+            "hello",
+            0.9294261336326599
+          ],
+          [
+            "call (on phone)",
+            0.0029379494953900576
+          ],
+          [
+            "loud",
+            0.002888173796236515
+          ]
+        ],
+        "literal_top1": true,
+        "semantic_top1": true,
+        "literal_top3": true,
+        "semantic_top3": true
+      }
+    ]
+  },
+  "10_conditions": [
+    {
+      "id": "C1",
+      "name": "GIRAFFE followed by hand lowering (simulating previous bug)",
+      "expected": [
+        "GIRAFFE"
+      ],
+      "recognized": [
+        "GIRAFFE",
+        "GIRAFFE"
+      ],
+      "confidences": [
+        0.9490114450454712,
+        0.5142058730125427
+      ],
+      "WER": 1.0,
+      "S": 0,
+      "D": 0,
+      "I": 1,
+      "passed": false
+    },
+    {
+      "id": "C2",
+      "name": "POLICE followed by hand lowering (checking single-hand release)",
+      "expected": [
+        "POLICE"
+      ],
+      "recognized": [
+        "POLICE"
+      ],
+      "confidences": [
+        0.9327032566070557
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C3",
+      "name": "HELLO followed by HELLO intentionally (with neutral rest in between)",
+      "expected": [
+        "HELLO",
+        "HELLO"
+      ],
+      "recognized": [
+        "HELLO",
+        "HELLO"
+      ],
+      "confidences": [
+        0.8765856027603149,
+        0.8765855431556702
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C4",
+      "name": "HELLO followed by POLICE (two different consecutive signs)",
+      "expected": [
+        "HELLO",
+        "POLICE"
+      ],
+      "recognized": [
+        "HELLO",
+        "POLICE"
+      ],
+      "confidences": [
+        0.8765856027603149,
+        0.933955729007721
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C5",
+      "name": "BLUE followed by GIRAFFE (two consecutive signs)",
+      "expected": [
+        "BLUE",
+        "GIRAFFE"
+      ],
+      "recognized": [
+        "BLUE",
+        "GIRAFFE"
+      ],
+      "confidences": [
+        0.661328911781311,
+        0.9490116238594055
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C6",
+      "name": "Fast Signing Speed (1.5x speed, 350ms inter-sign pause)",
+      "expected": [
+        "HELLO",
+        "POLICE"
+      ],
+      "recognized": [
+        "POLICE"
+      ],
+      "confidences": [
+        0.7963293790817261
+      ],
+      "WER": 0.5,
+      "S": 0,
+      "D": 1,
+      "I": 0,
+      "passed": false
+    },
+    {
+      "id": "C7",
+      "name": "Slow Signing Speed (0.7x speed, 700ms inter-sign pause)",
+      "expected": [
+        "BLUE",
+        "GIRAFFE"
+      ],
+      "recognized": [
+        "BLUE",
+        "GIRAFFE"
+      ],
+      "confidences": [
+        0.6796188354492188,
+        0.9595054388046265
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C8",
+      "name": "Short Pause (150ms hand occluded - bridges without duplicate)",
+      "expected": [
+        "HELLO"
+      ],
+      "recognized": [
+        "HELLO"
+      ],
+      "confidences": [
+        0.8992214798927307
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C9",
+      "name": "Long Pause (1200ms neutral rest between signs)",
+      "expected": [
+        "BLUE",
+        "POLICE"
+      ],
+      "recognized": [
+        "BLUE",
+        "POLICE"
+      ],
+      "confidences": [
+        0.661328911781311,
+        0.9339557886123657
+      ],
+      "WER": 0.0,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "passed": true
+    },
+    {
+      "id": "C10",
+      "name": "Temporary Hand Disappearance (missing landmarks 200ms during transition)",
+      "expected": [
+        "HELLO",
+        "POLICE"
+      ],
+      "recognized": [
+        "POLICE"
+      ],
+      "confidences": [
+        0.7946949005126953
+      ],
+      "WER": 0.5,
+      "S": 0,
+      "D": 1,
+      "I": 0,
+      "passed": false
+    }
+  ],
+  "scenarios_8": {
+    "reference_lengths": [
+      2,
+      3,
+      5,
+      1,
+      2,
+      2,
+      2,
+      2
+    ],
+    "total_reference_glosses": 19,
+    "before_fix": {
+      "S": 0,
+      "D": 2,
+      "I": 2,
+      "N": 19,
+      "C": 17,
+      "WER": 0.21052631578947367,
+      "accuracy": 0.8947368421052632
+    },
+    "after_fix": {
+      "S": 0,
+      "D": 2,
+      "I": 0,
+      "N": 19,
+      "C": 17,
+      "WER": 0.10526315789473684,
+      "accuracy": 0.8947368421052632,
+      "details": [
+        {
+          "id": "S1",
+          "name": "Two Consecutive Signs (400ms pause)",
+          "ref": [
+            "HELLO",
+            "POLICE"
+          ],
+          "hyp": [
+            "HELLO",
+            "POLICE"
+          ],
+          "align": {
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "C": 2,
+            "N": 2,
+            "WER": 0.0,
+            "alignment": [
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ],
+              [
+                "C",
+                "POLICE",
+                "POLICE"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S2",
+          "name": "Three Consecutive Signs (350ms pause)",
+          "ref": [
+            "HELLO",
+            "BLUE",
+            "POLICE"
+          ],
+          "hyp": [
+            "HELLO",
+            "POLICE"
+          ],
+          "align": {
+            "S": 0,
+            "D": 1,
+            "I": 0,
+            "C": 2,
+            "N": 3,
+            "WER": 0.3333333333333333,
+            "alignment": [
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ],
+              [
+                "D",
+                "BLUE",
+                "-"
+              ],
+              [
+                "C",
+                "POLICE",
+                "POLICE"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S3",
+          "name": "Five Consecutive Signs (400ms pause)",
+          "ref": [
+            "HELLO",
+            "BLUE",
+            "GIRAFFE",
+            "POLICE",
+            "HELLO"
+          ],
+          "hyp": [
+            "HELLO",
+            "BLUE",
+            "GIRAFFE",
+            "POLICE",
+            "HELLO"
+          ],
+          "align": {
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "C": 5,
+            "N": 5,
+            "WER": 0.0,
+            "alignment": [
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ],
+              [
+                "C",
+                "BLUE",
+                "BLUE"
+              ],
+              [
+                "C",
+                "GIRAFFE",
+                "GIRAFFE"
+              ],
+              [
+                "C",
+                "POLICE",
+                "POLICE"
+              ],
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S4",
+          "name": "Short Pause / Dropout (150ms)",
+          "ref": [
+            "HELLO"
+          ],
+          "hyp": [
+            "HELLO"
+          ],
+          "align": {
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "C": 1,
+            "N": 1,
+            "WER": 0.0,
+            "alignment": [
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S5",
+          "name": "Long Pause (1200ms pause)",
+          "ref": [
+            "BLUE",
+            "POLICE"
+          ],
+          "hyp": [
+            "BLUE",
+            "POLICE"
+          ],
+          "align": {
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "C": 2,
+            "N": 2,
+            "WER": 0.0,
+            "alignment": [
+              [
+                "C",
+                "BLUE",
+                "BLUE"
+              ],
+              [
+                "C",
+                "POLICE",
+                "POLICE"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S6",
+          "name": "Repeated Signs with Neutral Reset (500ms)",
+          "ref": [
+            "HELLO",
+            "HELLO"
+          ],
+          "hyp": [
+            "HELLO",
+            "HELLO"
+          ],
+          "align": {
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "C": 2,
+            "N": 2,
+            "WER": 0.0,
+            "alignment": [
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ],
+              [
+                "C",
+                "HELLO",
+                "HELLO"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S7",
+          "name": "Fast Signing Speed (1.5x, 200ms pause)",
+          "ref": [
+            "HELLO",
+            "POLICE"
+          ],
+          "hyp": [
+            "POLICE"
+          ],
+          "align": {
+            "S": 0,
+            "D": 1,
+            "I": 0,
+            "C": 1,
+            "N": 2,
+            "WER": 0.5,
+            "alignment": [
+              [
+                "D",
+                "HELLO",
+                "-"
+              ],
+              [
+                "C",
+                "POLICE",
+                "POLICE"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "S8",
+          "name": "Slow Signing Speed (0.7x, 600ms pause)",
+          "ref": [
+            "BLUE",
+            "GIRAFFE"
+          ],
+          "hyp": [
+            "BLUE",
+            "GIRAFFE"
+          ],
+          "align": {
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "C": 2,
+            "N": 2,
+            "WER": 0.0,
+            "alignment": [
+              [
+                "C",
+                "BLUE",
+                "BLUE"
+              ],
+              [
+                "C",
+                "GIRAFFE",
+                "GIRAFFE"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "physical_webcam": {
+    "file": "C:/Users/YATHARTH/.gemini/antigravity/brain/f808cfd0-4627-4e26-b76e-c9c82f3ba057/.user_uploaded/media_1795114088289_bcf5b2ba.mp4",
+    "exists": true,
+    "bytes": 15819617,
+    "resolution": "1894x964",
+    "frames": 482,
+    "fps": 30.0,
+    "duration_s": 16.066666666666666,
+    "analysis": "16.07-second real user physical webcam recording verifying MediaPipe Holistic detection, landmark stabilization, and user movement."
+  },
+  "translation_benchmark": {
+    "mean_bleu1": 0.5754761904761905,
+    "exact_matches": 1,
+    "semantic_accepts": 6,
+    "evaluations": [
+      {
+        "glosses": [
+          "HELLO",
+          "HOW",
+          "YOU"
+        ],
+        "reference": "Hello, how are you?",
+        "prediction": "Hello, how are you doing?",
+        "bleu1": 0.8,
+        "exact_match": false,
+        "latency_ms": 571.2053999886848,
+        "fidelity": "HIGH",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "MY",
+          "NAME",
+          "JOHN"
+        ],
+        "reference": "My name is John.",
+        "prediction": "My name is John.",
+        "bleu1": 1.0,
+        "exact_match": true,
+        "latency_ms": 274.04039999237284,
+        "fidelity": "HIGH",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "NICE",
+          "MEET",
+          "YOU"
+        ],
+        "reference": "Nice to meet you.",
+        "prediction": "Nice to meet you, too.",
+        "bleu1": 0.8,
+        "exact_match": false,
+        "latency_ms": 361.7629000218585,
+        "fidelity": "HIGH",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "YOU",
+          "WANT",
+          "WATER"
+        ],
+        "reference": "Do you want water?",
+        "prediction": "Would you like some water?",
+        "bleu1": 0.4,
+        "exact_match": false,
+        "latency_ms": 313.29090002691373,
+        "fidelity": "MODERATE",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "TODAY",
+          "WEATHER",
+          "BEAUTIFUL"
+        ],
+        "reference": "Today the weather is beautiful.",
+        "prediction": "The weather is so beautiful today.",
+        "bleu1": 0.8333333333333334,
+        "exact_match": false,
+        "latency_ms": 352.20189997926354,
+        "fidelity": "HIGH",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "WHERE",
+          "BATHROOM"
+        ],
+        "reference": "Where is the bathroom?",
+        "prediction": "Where's the bathroom?",
+        "bleu1": 0.75,
+        "exact_match": false,
+        "latency_ms": 268.6791999731213,
+        "fidelity": "HIGH",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "PLEASE",
+          "HELP",
+          "ME"
+        ],
+        "reference": "Please help me.",
+        "prediction": "Could you please help me?",
+        "bleu1": 0.6,
+        "exact_match": false,
+        "latency_ms": 298.97010000422597,
+        "fidelity": "HIGH",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "I",
+          "LEARN",
+          "SIGN",
+          "LANGUAGE"
+        ],
+        "reference": "I am learning sign language.",
+        "prediction": "I've learned how to speak English.",
+        "bleu1": 0.14285714285714285,
+        "exact_match": false,
+        "latency_ms": 393.20310001494363,
+        "fidelity": "MODERATE",
+        "hallucination": false,
+        "role_inversion": false,
+        "type": "standard"
+      },
+      {
+        "glosses": [
+          "BLUE",
+          "GIRAFFE"
+        ],
+        "reference": "A blue giraffe.",
+        "prediction": "It's blueberry pie.",
+        "bleu1": 0.0,
+        "exact_match": false,
+        "latency_ms": 316.5123999933712,
+        "fidelity": "CRITICAL_FAIL",
+        "hallucination": true,
+        "role_inversion": false,
+        "type": "failure_case_hallucination"
+      },
+      {
+        "glosses": [
+          "POLICE",
+          "HELP",
+          "ME"
+        ],
+        "reference": "Police, help me!",
+        "prediction": "Can you help me with the police?",
+        "bleu1": 0.42857142857142855,
+        "exact_match": false,
+        "latency_ms": 376.03450001915917,
+        "fidelity": "ROLE_INVERSION",
+        "hallucination": false,
+        "role_inversion": true,
+        "type": "failure_case_role_inversion"
+      }
+    ]
+  },
+  "oov_separation": {
+    "tier_a_count": 250,
+    "tier_b_samples": [
+      "FRIEND",
+      "WANT",
+      "LEARN",
+      "TEACHER"
+    ],
+    "tier_c_input": [
+      "HELLO",
+      "FRIEND",
+      "WANT",
+      "LEARN",
+      "SIGN"
+    ],
+    "tier_c_translation": "Hello, friend, want to learn how to sign?"
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "clip_evaluations": [
+    {
+      "sign": "blue",
+      "frames": 39,
+      "top1_pred": "blue",
+      "top1_prob": 0.7515670657157898,
+      "top3": [
+        [
+          "blue",
+          0.7516
+        ],
+        [
+          "tree",
+          0.026
+        ],
+        [
+          "refrigerator",
+          0.0206
+        ]
+      ],
+      "latency_ms": 3.4522999776527286,
+      "is_top1": true,
+      "is_top3": true
+    },
+    {
+      "sign": "police",
+      "frames": 21,
+      "top1_pred": "police",
+      "top1_prob": 0.9189997911453247,
+      "top3": [
+        [
+          "police",
+          0.919
+        ],
+        [
+          "chocolate",
+          0.0232
+        ],
+        [
+          "carrot",
+          0.0027
+        ]
+      ],
+      "latency_ms": 1.9807000062428415,
+      "is_top1": true,
+      "is_top3": true
+    },
+    {
+      "sign": "quiet",
+      "frames": 26,
+      "top1_pred": "shh",
+      "top1_prob": 0.9458480477333069,
+      "top3": [
+        [
+          "shh",
+          0.9458
+        ],
+        [
+          "police",
+          0.0047
+        ],
+        [
+          "jeans",
+          0.0018
+        ]
+      ],
+      "latency_ms": 1.62830000044778,
+      "is_top1": false,
+      "is_top3": false
+    },
+    {
+      "sign": "giraffe",
+      "frames": 29,
+      "top1_pred": "giraffe",
+      "top1_prob": 0.8539758324623108,
+      "top3": [
+        [
+          "giraffe",
+          0.854
+        ],
+        [
+          "head",
+          0.0261
+        ],
+        [
+          "hat",
+          0.0062
+        ]
+      ],
+      "latency_ms": 1.7485000425949693,
+      "is_top1": true,
+      "is_top3": true
+    },
+    {
+      "sign": "smile",
+      "frames": 24,
+      "top1_pred": "smile",
+      "top1_prob": 0.35385552048683167,
+      "top3": [
+        [
+          "smile",
+          0.3539
+        ],
+        [
+          "home",
+          0.2603
+        ],
+        [
+          "napkin",
+          0.0719
+        ]
+      ],
+      "latency_ms": 1.5002999571152031,
+      "is_top1": true,
+      "is_top3": true
+    },
+    {
+      "sign": "hello",
+      "frames": 17,
+      "top1_pred": "hello",
+      "top1_prob": 0.9294261336326599,
+      "top3": [
+        [
+          "hello",
+          0.9294
+        ],
+        [
+          "call (on phone)",
+          0.0029
+        ],
+        [
+          "loud",
+          0.0029
+        ]
+      ],
+      "latency_ms": 1.5153000131249428,
+      "is_top1": true,
+      "is_top3": true
+    }
+  ],
+  "top1_accuracy": 0.8333333333333334,
+  "top3_accuracy": 0.8333333333333334,
+  "segmentation_error_cause": "co-articulation transition motion + end_reason != still bypass",
+  "sequence_evaluations": [
+    {
+      "name": "Two Consecutive Signs (Normal Speed, 400ms Pause)",
+      "ground_truth": [
+        "HELLO",
+        "POLICE"
+      ],
+      "recognized": [
+        "HELLO",
+        "POLICE"
+      ],
+      "confidences": [
+        0.8765856027603149,
+        0.933955729007721
+      ],
+      "wer": 0.0,
+      "translation": "Hello, police.",
+      "trans_latency_ms": 192.8557000355795
+    },
+    {
+      "name": "Three Consecutive Signs (Normal Speed, 350ms Pause)",
+      "ground_truth": [
+        "HELLO",
+        "BLUE",
+        "POLICE"
+      ],
+      "recognized": [
+        "HELLO",
+        "POLICE"
+      ],
+      "confidences": [
+        0.9093552827835083,
+        0.9339557886123657
+      ],
+      "wer": 0.3333333333333333,
+      "translation": "Hello, police.",
+      "trans_latency_ms": 128.9398999651894
+    },
+    {
+      "name": "Five Consecutive Signs (Normal Speed, 400ms Pause)",
+      "ground_truth": [
+        "HELLO",
+        "BLUE",
+        "GIRAFFE",
+        "POLICE",
+        "HELLO"
+      ],
+      "recognized": [
+        "HELLO",
+        "BLUE",
+        "GIRAFFE",
+        "GIRAFFE",
+        "POLICE",
+        "HELLO"
+      ],
+      "confidences": [
+        0.8765856027603149,
+        0.6613286733627319,
+        0.9490116238594055,
+        0.9718992114067078,
+        0.933955729007721,
+        0.8765855431556702
+      ],
+      "wer": 0.2,
+      "translation": "Hello, blueberry pie! Hello, police!",
+      "trans_latency_ms": 643.8111000461504
+    },
+    {
+      "name": "Short Pause (150ms dropout - should bridge)",
+      "ground_truth": [
+        "HELLO"
+      ],
+      "recognized": [
+        "HELLO"
+      ],
+      "confidences": [
+        0.8992214798927307
+      ],
+      "wer": 0.0,
+      "translation": "Hello.",
+      "trans_latency_ms": 169.35360000934452
+    },
+    {
+      "name": "Long Pause (1200ms rest between signs)",
+      "ground_truth": [
+        "BLUE",
+        "POLICE"
+      ],
+      "recognized": [
+        "BLUE",
+        "POLICE"
+      ],
+      "confidences": [
+        0.661328911781311,
+        0.9339557886123657
+      ],
+      "wer": 0.0,
+      "translation": "Black police.",
+      "trans_latency_ms": 182.36700003035367
+    },
+    {
+      "name": "Repeated Signs with Neutral Reset (500ms rest)",
+      "ground_truth": [
+        "HELLO",
+        "HELLO"
+      ],
+      "recognized": [
+        "HELLO",
+        "HELLO"
+      ],
+      "confidences": [
+        0.8765856027603149,
+        0.8765857219696045
+      ],
+      "wer": 0.0,
+      "translation": "Hello, hello.",
+      "trans_latency_ms": 143.94380000885576
+    },
+    {
+      "name": "Fast Signing Speed (1.5x speed, 200ms pause)",
+      "ground_truth": [
+        "HELLO",
+        "POLICE"
+      ],
+      "recognized": [
+        "POLICE"
+      ],
+      "confidences": [
+        0.8629719018936157
+      ],
+      "wer": 0.5,
+      "translation": "The police.",
+      "trans_latency_ms": 108.89859998133034
+    },
+    {
+      "name": "Slow Signing Speed (0.7x speed, 600ms pause)",
+      "ground_truth": [
+        "BLUE",
+        "GIRAFFE"
+      ],
+      "recognized": [
+        "BLUE",
+        "GIRAFFE",
+        "GIRAFFE"
+      ],
+      "confidences": [
+        0.6796188354492188,
+        0.9595054388046265,
+        0.958693265914917
+      ],
+      "wer": 0.5,
+      "translation": "It's blueberry pie.",
+      "trans_latency_ms": 162.6094999955967
+    }
+  ],
+  "translation_eval": {
+    "mean_bleu1": 0.6595238095238095,
+    "pairs_evaluated": 10
+  }
+}

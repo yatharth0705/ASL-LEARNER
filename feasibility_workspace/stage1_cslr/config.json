@@ -1,0 +1,9 @@
+{
+  "d_model": 256,
+  "dropout": 0.1,
+  "ff_dim": 1024,
+  "input_dim": 153,
+  "n_heads": 4,
+  "n_layers": 4,
+  "vocab_size": 1354
+}
